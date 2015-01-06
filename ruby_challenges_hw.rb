@@ -2,8 +2,8 @@
 
 
 # Challenge 1 - Temperature Converter ------------------------------
-# puts "Type '1' to convert from Celsius to Fahrenheit OR type '2' to convert from Fahrenheit to Celsius"
 def challenge1	
+	puts "Type '1' to convert from Celsius to Fahrenheit OR type '2' to convert from Fahrenheit to Celsius"
 	c_or_f = gets.chomp.to_i
 
 	if c_or_f == 1
@@ -30,26 +30,26 @@ end
 def challenge2	
 	puts "What calculation would you like to do? (add, sub, mult, div)"
 	method = gets.chomp.to_s
-	puts "-" * 10
+	puts "-" * 18
 	puts "What is number 1?"
-	num1 = gets.chomp.to_i
-	puts "-" * 10
+	num1 = gets.chomp.to_f
+	puts "-" * 18
 	puts "What is number 2?"
-	num2 = gets.chomp.to_i
-	puts "-" * 10
+	num2 = gets.chomp.to_f
+	puts "-" * 18
 
 	if method == "add"
 		add_total = num1 + num2
-		puts "the solution is: #{num1} + #{num2} = #{add_total}"
+		puts "The solution is: #{num1} + #{num2} = #{add_total}"
 	elsif method == "sub"
 		sub_total = num1 - num2
-		puts "the solution is: #{num1} - #{num2} = #{sub_total}"
+		puts "The solution is: #{num1} - #{num2} = #{sub_total}"
 	elsif method == "mult"
 		mult_total = num1 * num2
-		puts "the solution is: #{num1} * #{num2} = #{mult_total}"
+		puts "The solution is: #{num1} * #{num2} = #{mult_total}"
 	elsif method == "div"
 		div_total = num1 / num2
-		puts "the solution is: #{num1} / #{num2} = #{div_total}"
+		puts "The solution is: #{num1.round} / #{num2.round} = #{div_total}"
 	else
 		puts "Please only use one of the following four methods: add, sub, mult, div"
 	end
@@ -58,20 +58,30 @@ end
 # Challenge 3 - Reverse a string -----------------------------------
 def challenge3	
 	puts "Enter a string:"
-	string = gets.chomp
-	arr = string.split("")
-	len = arr.length-1
-	new_arr = []
+	# arr = gets.chomp.split("")
+	# len = arr.length-1
+	# new_arr = []
 
-	for i in 0..len
-		new_arr.push(arr[len-i])
+	# for i in 0..len
+	# 	new_arr.push(arr[len-i])
+	# end
+	# puts "#{new_arr.join}"
+
+	word = gets.chomp.split("")
+	reverse_word = []
+
+	word.each do |letters|
+		reverse_word.unshift(letters)
 	end
-	puts "#{new_arr.join}"
+
+	puts "Your reversed word is: #{reverse_word.join.to_s}"
+
+
 end
 
 # Challenge 4 - Bank Transactions ----------------------------------
 def challenge4 	
-	balance = 4000
+	$balance = 4000
 	puts "Your current balance is"
 	puts "#{balance}"
 	choice = "yes"
@@ -112,7 +122,7 @@ end
 # Challenge 5 - Guessing Game --------------------------------------
 def challenge5 
 	counter = 1
-	number = 47
+	number = rand(1..100)
 	puts "Guess a number between 1 and 100"
 	guess = gets.chomp.to_i
 
@@ -156,7 +166,6 @@ when 5
 	challenge5
 else
     puts "Enter a number 1 - 5"
-    puts "Example: ruby_challenges_hw 1"
 end
 
  
